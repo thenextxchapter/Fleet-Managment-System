@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -31,4 +33,16 @@ public class Client {
 	private String mobile;
 	private String website;
 	private String email;
+
+	@ManyToOne
+	@JoinColumn(name="countryid", insertable=false, updatable=false)
+	private Country country;
+	private Integer countryid;
+
+	@ManyToOne
+	@JoinColumn(name="stateid", insertable=false, updatable=false)
+	private State state;
+	private Integer stateid;
+
+	private String details;
 }

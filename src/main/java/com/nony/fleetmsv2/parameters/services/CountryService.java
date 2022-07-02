@@ -18,4 +18,8 @@ public class CountryService {
 	public void save(Country country) { countryRepository.save(country); }
 
 	public void delete(Integer id) { countryRepository.deleteById(id); }
+
+	public Country getById(Integer id) {
+		return countryRepository.findById(id).orElse(null);
+	}
 }

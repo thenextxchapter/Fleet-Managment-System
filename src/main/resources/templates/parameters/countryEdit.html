@@ -15,7 +15,7 @@
                             <h5 class="card-title">Edit Country Record</h5>
 
                             <!-- Horizontal Form -->
-                            <form method="post" th:action="@{/countries}">
+                            <form method="put" th:action="@{'/countries/update/' + ${country.id}}">
                                 <div class="row mb-3">
                                     <label for="inputDescription" class="col-sm-3 col-form-label">Description</label>
                                     <div class="col-sm-8">

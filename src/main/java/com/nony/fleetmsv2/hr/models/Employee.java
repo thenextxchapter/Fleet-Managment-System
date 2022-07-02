@@ -3,16 +3,15 @@ package com.nony.fleetmsv2.hr.models;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import java.util.Date;
+import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import org.hibernate.Hibernate;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Data
-@EqualsAndHashCode(callSuper=false)
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Employee extends Person {
 
@@ -30,4 +29,19 @@ public class Employee extends Person {
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date hireDate;
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o))
+			return false;
+		Employee employee = (Employee) o;
+		return getId() != null && Objects.equals(getId(), employee.getId());
+	}
+
+	@Override
+	public int hashCode() {
+		return getClass().hashCode();
+	}
 }

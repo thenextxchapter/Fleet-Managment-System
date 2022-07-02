@@ -16,7 +16,6 @@ public class CountryController {
 	private CountryService countryService;
 
 	@GetMapping("/countries")
-	@ResponseBody
 	public List<Country> getAll() {
 		return countryService.getAll();
 	}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
+
+<body>
+    <div layout:fragment="content">
+
+        <div class="container">
+            <div class="row offset-md-1">
+                <div class="col-lg-9">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Add New Country Record</h5>
+
+                            <!-- Horizontal Form -->
+                            <form method="post" th:action="@{/countries}">
+                                <div class="row mb-3">
+                                    <label for="inputDescription" class="col-sm-3 col-form-label">Description</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="description" class="form-control" id="inputDescription">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputCapital" class="col-sm-3 col-form-label">Capital</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="capital" class="form-control" id="inputCapital">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputNationality" class="col-sm-3 col-form-label">Nationality</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="nationality" class="form-control" id="inputNationality">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputContinent" class="col-sm-3 col-form-label">Continent</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="continent" class="form-control" id="inputContinent">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputCode" class="col-sm-3 col-form-label">Code</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="code" class="form-control" id="inputCode">
+                                    </div>
+                                </div>
+
+                                <div class="text-center">
+                                    <button href="/countryAdd" type="submit" class="btn btn-primary">Save</button>
+                                    <a href="/countries" class="btn btn-warning">Exit</a>
+                                </div>
+                            </form><!-- End Horizontal Form -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

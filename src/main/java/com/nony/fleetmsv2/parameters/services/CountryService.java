@@ -13,11 +13,9 @@ public class CountryService {
 	@Autowired
 	private CountryRepository countryRepository;
 
-	public List<Country> getAll(){
-		return countryRepository.findAll();
-	}
+	public List<Country> getAll(){ return countryRepository.findAll(); }
 
-	public void save(Country country) {
-		countryRepository.save(country);
-	}
+	public void save(Country country) { countryRepository.save(country); }
+
+	public void delete(Integer id) { countryRepository.deleteById(id); }
 }

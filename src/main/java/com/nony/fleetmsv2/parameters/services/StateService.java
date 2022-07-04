@@ -20,4 +20,8 @@ public class StateService {
 
 	public void delete(Integer id) { stateRepository.deleteById(id); }
 
+	public State getById(Integer id) {
+		return stateRepository.findById(id).orElse(null);
+	}
+
 }

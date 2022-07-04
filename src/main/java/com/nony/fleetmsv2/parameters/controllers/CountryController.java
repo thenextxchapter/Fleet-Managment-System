@@ -24,12 +24,12 @@ public class CountryController {
 	public String getAll(Model model) {
 		List<Country> countries = countryService.getAll();
 		model.addAttribute("countries", countries);
-		return "parameters/countryList";
+		return "parameters/country/countryList";
 	}
 
 	@GetMapping("/countryAdd")
 	public String addCountry() {
-		return "parameters/countryAdd";
+		return "parameters/country/countryAdd";
 	}
 
 	@GetMapping("/countryEdit/{id}")
@@ -37,7 +37,7 @@ public class CountryController {
 //		To return anything to the UI, you have to use the Model
 		Country country = countryService.getById(id);
 		model.addAttribute("country", country);
-		return "parameters/countryEdit";
+		return "parameters/country/countryEdit";
 	}
 
 	@PostMapping("/countries")

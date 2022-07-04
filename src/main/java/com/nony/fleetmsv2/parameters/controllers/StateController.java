@@ -21,4 +21,9 @@ public class StateController {
 		model.addAttribute("states", states);
 		return "parameters/state/stateList";
 	}
+
+	@GetMapping("/stateAdd")
+	public String addState() {
+		return "parameters/state/stateAdd";
+	}
 }

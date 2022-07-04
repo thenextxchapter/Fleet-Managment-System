@@ -2,6 +2,7 @@ package com.nony.fleetmsv2.parameters.services;
 
 import java.util.List;
 
+import com.nony.fleetmsv2.parameters.models.Country;
 import com.nony.fleetmsv2.parameters.models.State;
 import com.nony.fleetmsv2.parameters.repositories.StateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,5 +15,7 @@ public class StateService {
 	private StateRepository stateRepository;
 
 	public List<State> getAll() { return stateRepository.findAll(); }
+
+	public void save(State state) { stateRepository.save(state); }
 
 }

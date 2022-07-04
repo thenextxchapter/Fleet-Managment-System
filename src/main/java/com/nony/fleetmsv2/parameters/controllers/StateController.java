@@ -55,4 +55,9 @@ public class StateController {
 		model.addAttribute("state", state);
 		return "parameters/state/stateEdit";
 	}
+
+	public String update(State state) {
+		stateService.save(state);
+		return "redirect:/states";
+	}
 }

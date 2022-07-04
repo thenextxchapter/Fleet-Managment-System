@@ -48,4 +48,11 @@ public class StateController {
 		stateService.delete(id);
 		return "redirect:/states";
 	}
+
+	@GetMapping("/stateEdit/{id}")
+	public String editState(@PathVariable Integer id, Model model) {
+		State state = stateService.getById(id);
+		model.addAttribute("state", state);
+		return "parameters/state/stateEdit";
+	}
 }

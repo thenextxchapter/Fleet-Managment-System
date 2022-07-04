@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class StateController {
@@ -27,6 +28,7 @@ public class StateController {
 		return "parameters/state/stateAdd";
 	}
 
+	@PostMapping("/states")
 	public String save(State state) {
 		stateService.save(state);
 		return "redirect:/states";

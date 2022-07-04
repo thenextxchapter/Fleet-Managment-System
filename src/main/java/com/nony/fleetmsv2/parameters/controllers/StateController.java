@@ -26,4 +26,9 @@ public class StateController {
 	public String addState() {
 		return "parameters/state/stateAdd";
 	}
+
+	public String save(State state) {
+		stateService.save(state);
+		return "redirect:/states";
+	}
 }

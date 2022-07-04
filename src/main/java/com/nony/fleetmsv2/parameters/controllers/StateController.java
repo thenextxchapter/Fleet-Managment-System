@@ -19,6 +19,6 @@ public class StateController {
 	private String getAll(Model model) {
 		List<State> states = stateService.getAll();
 		model.addAttribute("states", states);
-		return "parameters/stateList";
+		return "parameters/state/stateList";
 	}
 }

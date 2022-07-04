@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout">
+
+<body>
+    <div layout:fragment="content">
+
+        <div class="container">
+            <div class="row offset-md-1">
+                <div class="col-lg-9">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Edit State Record</h5>
+
+                            <!-- Horizontal Form -->
+                            <form method="put" th:action="@{'/states/update/' + ${state.id}}">
+                                <div class="row mb-3">
+                                    <label for="inputName" class="col-sm-3 col-form-label">Name</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="name" th:value="${state.name}" class="form-control" id="inputName">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputCapital" class="col-sm-3 col-form-label">Capital</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="capital" th:value="${state.capital}" class="form-control" id="inputCapital">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputCode" class="col-sm-3 col-form-label">Code</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="code" th:value="${state.code}" class="form-control" id="inputCode">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputCountry" class="col-sm-3 col-form-label">Country</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="countryid" th:value="${state.countryid}" class="form-control" id="inputCountry">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputDetails" class="col-sm-3 col-form-label">Details</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="details" th:value="${state.details}" class="form-control" id="inputDetails">
+                                    </div>
+                                </div>
+
+                                <div class="text-center">
+                                    <button href="/stateAdd" type="submit" class="btn btn-primary">Save</button>
+                                    <a href="/states" class="btn btn-warning">Exit</a>
+                                </div>
+                            </form><!-- End Horizontal Form -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

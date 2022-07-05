@@ -2,6 +2,7 @@ package com.nony.fleetmsv2.parameters.controllers;
 
 import java.util.List;
 
+import com.nony.fleetmsv2.parameters.models.Country;
 import com.nony.fleetmsv2.parameters.models.State;
 import com.nony.fleetmsv2.parameters.services.CountryService;
 import com.nony.fleetmsv2.parameters.services.StateService;
@@ -67,6 +68,13 @@ public class StateController {
 		return "parameters/state/stateEdit";
 	}
 
+	@RequestMapping(
+			value = "/parameters/states/update/{id}",
+			method = {
+					RequestMethod.GET,
+					RequestMethod.PUT
+			}
+	)
 	public String update(State state) {
 		stateService.save(state);
 		return "redirect:/parameters/states";

@@ -36,7 +36,7 @@ public class StateController {
 		return "parameters/state/stateList";
 	}
 
-	@GetMapping("/parameters/add-states")
+	@GetMapping("/parameters/add-state")
 	public String addState(Model model) {
 		addModelAttribute(model);
 		return "parameters/state/stateAdd";
@@ -60,11 +60,11 @@ public class StateController {
 		return "redirect:/parameters/states";
 	}
 
-	@GetMapping("/parameters/state/{op}/{id}")
-	public String editState(@PathVariable Integer id, @PathVariable String op, Model model) {
+	@GetMapping("/parameters/edit-state/{id}")
+	public String editState(@PathVariable Integer id, Model model) {
 		addModelAttribute(model);
 		model.addAttribute("state", stateService.getById(id));
-		return "parameters/state/stateEdit" + op;
+		return "parameters/state/stateEdit";
 	}
 
 	public String update(State state) {

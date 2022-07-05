@@ -34,19 +34,19 @@ public class LocationController {
 	@GetMapping("/parameters/locations")
 	public String getAll(Model model){
 		addModelAttributes(model);
-		return "/parameters/locations";
+		return "/parameters/location/locations";
 	}
 
 	@GetMapping("/parameters/add-location")
 	public String addLocation(Model model){
 		model.addAttribute("countries", countryService.getAll());
-		return "parameters/locationAdd";
+		return "parameters/location/locationAdd";
 	}
 
 	@PostMapping("/parameters/locations")
 	public String save(Location location) {
 		locationService.save(location);
-		return "redirect:/parameters/locations";
+		return "redirect:/parameters/location/locations";
 	}
 
 	@RequestMapping(
@@ -58,14 +58,14 @@ public class LocationController {
 	)
 	public String delete(@PathVariable Integer id) {
 		locationService.delete(id);
-		return "redirect:/parameters/locations";
+		return "redirect:/parameters/location/locations";
 	}
 
 	@GetMapping("/parameters/edit-location/{id}")
 	public String editLocation(@PathVariable Integer id, Model model) {
 		addModelAttributes(model);
 		model.addAttribute("location", locationService.getById(id));
-		return "parameters/state/stateEdit";
+		return "parameters/locaton/locationEdit";
 	}
 
 	@RequestMapping(
@@ -77,6 +77,6 @@ public class LocationController {
 	)
 	public String update(Location location) {
 		locationService.save(location);
-		return "redirect:/parameters/locations";
+		return "redirect:/parameters/location/locations";
 	}
 }

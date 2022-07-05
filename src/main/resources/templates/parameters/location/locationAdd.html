@@ -46,6 +46,24 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="row mb-3">
+                                <label for="inputState" class="col-sm-3 col-form-label">State</label>
+                                <div class="col-sm-8">
+                                    <select name="stateid" class="form-select" id="inputState">
+                                        <option>List of States</option>
+                                        <option th:each="state : ${states}"
+                                                th:value="${state.id}"
+                                                th:text="${state.name}">
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputDetails" class="col-sm-3 col-form-label">Details</label>
+                                <div class="col-sm-8">
+                                    <input type="text" name="address" class="form-control" id="inputDetails">
+                                </div>
+                            </div>
 
                             <div class="text-center">
                                 <button href="/parameters/add-location" type="submit" class="btn btn-primary">Save</button>
@@ -60,5 +78,8 @@
     </div>
 
 </div>
+<th:block layout:fragment="script">
+    <script th:src="@{/assets/js/jquery.js}"></script>
+</th:block>
 </body>
 </html>

@@ -3,6 +3,7 @@ package com.nony.fleetmsv2.parameters.controllers;
 import java.util.List;
 
 import com.nony.fleetmsv2.parameters.models.State;
+import com.nony.fleetmsv2.parameters.services.CountryService;
 import com.nony.fleetmsv2.parameters.services.StateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,26 +20,36 @@ public class StateController {
 	@Autowired
 	private StateService stateService;
 
-	@GetMapping("/states")
+	@Autowired
+	private CountryService countryService;
+
+	public Model addModelAttribute(Model model) {
+		model.addAttribute("states", stateService.getAll());
+		model.addAttribute("countries", countryService.getAll());
+		return model;
+	}
+
+//	Get All States
+	@GetMapping("/parameters/states")
 	private String getAll(Model model) {
-		List<State> states = stateService.getAll();
-		model.addAttribute("states", states);
+		addModelAttribute(model);
 		return "parameters/state/stateList";
 	}
 
-	@GetMapping("/stateAdd")
-	public String addState() {
+	@GetMapping("/parameters/add-states")
+	public String addState(Model model) {
+		addModelAttribute(model);
 		return "parameters/state/stateAdd";
 	}
 
-	@PostMapping("/states")
+	@PostMapping("/parameters/states")
 	public String save(State state) {
 		stateService.save(state);
-		return "redirect:/states";
+		return "redirect:/parameters/states";
 	}
 
 	@RequestMapping(
-			value = "states/delete/{id}",
+			value = "/parameters/states/delete/{id}",
 			method = {
 					RequestMethod.GET,
 					RequestMethod.DELETE
@@ -46,18 +57,18 @@ public class StateController {
 	)
 	public String delete(@PathVariable Integer id) {
 		stateService.delete(id);
-		return "redirect:/states";
+		return "redirect:/parameters/states";
 	}
 
-	@GetMapping("/stateEdit/{id}")
-	public String editState(@PathVariable Integer id, Model model) {
-		State state = stateService.getById(id);
-		model.addAttribute("state", state);
-		return "parameters/state/stateEdit";
+	@GetMapping("/parameters/state/{op}/{id}")
+	public String editState(@PathVariable Integer id, @PathVariable String op, Model model) {
+		addModelAttribute(model);
+		model.addAttribute("state", stateService.getById(id));
+		return "parameters/state/stateEdit" + op;
 	}
 
 	public String update(State state) {
 		stateService.save(state);
-		return "redirect:/states";
+		return "redirect:/parameters/states";
 	}
 }

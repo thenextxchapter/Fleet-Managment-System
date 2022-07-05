@@ -70,4 +70,11 @@ public class CountryController {
 		countryService.save(country);
 		return "redirect:/parameters/countries";
 	}
+
+	//Get Country By ID
+	@GetMapping("/parameters/country/{id}")
+	@ResponseBody
+	public Country getCountry(@PathVariable Integer id) {
+		return countryService.getById(id);
+	}
 }

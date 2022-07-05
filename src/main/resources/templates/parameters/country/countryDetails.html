@@ -15,7 +15,7 @@
                             <h5 class="card-title">Edit Country Record</h5>
 
                             <!-- Horizontal Form -->
-                            <form method="put" th:action="@{'/countries/update/' + ${country.id}}">
+                            <form method="put" th:action="@{'/parameters/countries/update/' + ${country.id}}">
                                 <div class="row mb-3">
                                     <label for="inputDescription" class="col-sm-3 col-form-label">Description</label>
                                     <div class="col-sm-8">
@@ -48,8 +48,8 @@
                                 </div>
 
                                 <div class="text-center">
-                                    <button href="/countryAdd" type="submit" class="btn btn-primary">Save</button>
-                                    <a href="/countries" class="btn btn-warning">Exit</a>
+                                    <button href="/parameters/add-country" type="submit" class="btn btn-primary">Save</button>
+                                    <a href="/parameters/countries" class="btn btn-warning">Exit</a>
                                 </div>
                             </form><!-- End Horizontal Form -->
 

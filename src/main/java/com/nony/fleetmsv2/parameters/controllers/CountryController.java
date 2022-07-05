@@ -20,19 +20,19 @@ public class CountryController {
 	@Autowired
 	private CountryService countryService;
 
-	@GetMapping("/countries")
+	@GetMapping("/parameters/countries")
 	public String getAll(Model model) {
 		List<Country> countries = countryService.getAll();
 		model.addAttribute("countries", countries);
 		return "parameters/country/countryList";
 	}
 
-	@GetMapping("/countryAdd")
+	@GetMapping("/parameters/add-country")
 	public String addCountry() {
 		return "parameters/country/countryAdd";
 	}
 
-	@GetMapping("/countryEdit/{id}")
+	@GetMapping("/parameters/edit-country/{id}")
 	public String editCountry(@PathVariable Integer id, Model model) {
 //		To return anything to the UI, you have to use the Model
 		Country country = countryService.getById(id);
@@ -40,15 +40,15 @@ public class CountryController {
 		return "parameters/country/countryEdit";
 	}
 
-	@PostMapping("/countries")
+	@PostMapping("/parameters/countries")
 	public String save(Country country) {
 		countryService.save(country);
-		return "redirect:/countries";
+		return "redirect:/parameters/countries";
 //		Returns a new refreshed list
 	}
 
 	@RequestMapping(
-			value = "/countries/delete/{id}",
+			value = "/parameters/countries/delete/{id}",
 			method = {
 					RequestMethod.GET,
 					RequestMethod.DELETE
@@ -56,11 +56,11 @@ public class CountryController {
 	)
 	public String delete(@PathVariable Integer id) {
 		countryService.delete(id);
-		return "redirect:/countries";
+		return "redirect:/parameters/countries";
 	}
 
 	@RequestMapping(
-			value = "/countries/update/{id}",
+			value = "/parameters/countries/update/{id}",
 			method = {
 					RequestMethod.GET,
 					RequestMethod.PUT
@@ -68,6 +68,6 @@ public class CountryController {
 	)
 	public String update(Country country) {
 		countryService.save(country);
-		return "redirect:/countries";
+		return "redirect:/parameters/countries";
 	}
 }

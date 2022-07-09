@@ -46,7 +46,7 @@ public class LocationController {
 	@PostMapping("/parameters/locations")
 	public String save(Location location) {
 		locationService.save(location);
-		return "redirect:/parameters/location/locations";
+		return "redirect:/parameters/locations";
 	}
 
 	@RequestMapping(
@@ -58,7 +58,7 @@ public class LocationController {
 	)
 	public String delete(@PathVariable Integer id) {
 		locationService.delete(id);
-		return "redirect:/parameters/location/locations";
+		return "redirect:/parameters/locations";
 	}
 
 	@GetMapping("/parameters/edit-location/{id}")
@@ -77,6 +77,6 @@ public class LocationController {
 	)
 	public String update(Location location) {
 		locationService.save(location);
-		return "redirect:/parameters/location/locations";
+		return "redirect:/parameters/locations";
 	}
 }

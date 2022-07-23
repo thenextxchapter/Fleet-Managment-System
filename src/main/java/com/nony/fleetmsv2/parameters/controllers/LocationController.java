@@ -64,7 +64,7 @@ public class LocationController {
 	@GetMapping("/parameters/edit-location/{id}")
 	public String editLocation(@PathVariable Integer id, Model model) {
 		addModelAttributes(model);
-		model.addAttribute("location", locationService.getById(id));
+//		model.addAttribute("location", locationService.getById(id));
 		return "parameters/locaton/locationEdit";
 	}
 

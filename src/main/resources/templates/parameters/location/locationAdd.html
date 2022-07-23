@@ -17,6 +17,12 @@
                         <!-- Horizontal Form -->
                         <form method="post" th:action="@{/parameters/locations}">
                             <div class="row mb-3">
+                                <label for="inputId" class="col-sm-3 col-form-label">Id</label>
+                                <div class="col-sm-8">
+                                    <input type="text" name="Id" class="form-control" id="inputId" disabled>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
                                 <label for="inputDescription" class="col-sm-3 col-form-label">Description</label>
                                 <div class="col-sm-8">
                                     <input type="text" name="description" class="form-control" id="inputDescription">
@@ -78,8 +84,6 @@
     </div>
 
 </div>
-<th:block layout:fragment="script">
-    <script th:src="@{/assets/js/jquery.js}"></script>
-</th:block>
+<th:block layout:fragment="script"></th:block>
 </body>
 </html>
